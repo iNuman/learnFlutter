@@ -22,13 +22,17 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.lightBlueAccent,
 
       ),
-      body: const Center(
-        child: Text("I'm Hello world",
-            style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.grey,
-                fontFamily: "PoppinsBold"
-            )
+      body: Container(
+        padding: const EdgeInsets.all(20.0),
+        color: Colors.lightGreenAccent,
+        child: const Center(
+          child: Text("I'm Hello world",
+              style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.grey,
+                  fontFamily: "PoppinsBold"
+              )
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
