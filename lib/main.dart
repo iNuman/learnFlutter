@@ -1,49 +1,33 @@
 import 'package:flutter/material.dart';
-
-void main()  => runApp(const MaterialApp(
-      home: Home()
-  ));
+import 'package:learn1/quote_card.dart';
+import 'quote.dart';
 
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+void main() => runApp(const MaterialApp(
+      home: QuoteList(),
+    ));
+
+class QuoteList extends StatefulWidget {
+  const QuoteList({super.key});
+
+  @override
+  State<QuoteList> createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("Appbar",
-            style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-                fontFamily: "PoppinsBold"
-            )),
+        title: const Text("Awesome Quotes"),
         centerTitle: true,
-        backgroundColor: Colors.lightBlueAccent,
-
+        backgroundColor: Colors.redAccent,
       ),
-      body: Container(
-        padding: const EdgeInsets.all(20.0),
-        color: Colors.lightGreenAccent,
-        child: const Center(
-          child: Text("I'm Hello world",
-              style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.grey,
-                  fontFamily: "PoppinsBold"
-              )
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-        backgroundColor: Colors.lightBlueAccent,
-        child: const Text("OK",
-            style: TextStyle(
-            fontSize: 14.0,
-            color: Colors.white)),
+      body: ListView(
+        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
       ),
     );
   }
 }
-
