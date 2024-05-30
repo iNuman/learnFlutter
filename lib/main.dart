@@ -1,40 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:learn1/quote_card.dart';
-import 'quote.dart';
+import 'package:learn1/pages/choose_location.dart';
+import 'package:learn1/pages/home.dart';
+import 'package:learn1/pages/loading.dart';
 
-
-void main() => runApp(const MaterialApp(
-      home: QuoteList(),
+void main() =>
+    runApp(MaterialApp(
+      initialRoute: '/home',
+      routes: {
+        '/': (context) => LoadingScreen(),
+        '/home': (context) => const Home(),
+        '/location': (context) => const ChooseLocation(),
+      },
     ));
-
-class QuoteList extends StatefulWidget {
-  const QuoteList({super.key});
-
-  @override
-  State<QuoteList> createState() => _QuoteListState();
-}
-
-class _QuoteListState extends State<QuoteList> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text("Awesome Quotes"),
-        centerTitle: true,
-        backgroundColor: Colors.redAccent,
-      ),
-      body: ListView(
-        children: quotes.map((quote) => QuoteCard(
-            quote: quote,
-          delete: () {
-              setState(() {
-                quotes.remove(quote);
-              });
-          }
-        )).toList(),
-      ),
-    );
-  }
-}
