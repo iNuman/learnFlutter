@@ -5,7 +5,8 @@ import 'package:learn1/pages/loading.dart';
 
 void main() =>
     runApp(MaterialApp(
-      initialRoute: '/home',
+      debugShowCheckedModeBanner: true,
+      initialRoute: '/loading',
       routes: {
         '/': (context) => LoadingScreen(),
         '/home': (context) => const Home(),
